@@ -60,7 +60,6 @@ class Player{
     if (keyPress == 'right' && this.x < 395){
       this.x += 100;
     };
-
  };
 }
 
@@ -68,9 +67,13 @@ class Player{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [];
-const enemyLocation = [0, 0, 0];
+const enemyLocation = [60, 140, 230];
 const player = new Player(200, 406);
 
+enemyLocation.forEach(locY => {
+	enemy = new Enemy(0, locY, 100);
+	allEnemies.push(enemy);
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
