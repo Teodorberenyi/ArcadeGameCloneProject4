@@ -16,6 +16,7 @@ class Enemy {
 // Parameter: dt, a time delta between ticks
 update(dt){
     // You should multiply any movement by the dt parameter
+    this.x += this.speed * dt;
     // which will ensure the game runs at the same speed for
     // all computers.
  };
@@ -29,19 +30,18 @@ render () {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class MyPlayer{
-  constructor(x, y, speed){
+class Player{
+  constructor(x, y){
     this.x = x;
     this.y = y;
-    this.speed = speed;
-    this.sprite = 'images/char-car-girl.png'
+    this.player = 'images/char-boy.png';
   };
   update(dt){
 
   };
 
   render(){
-
+   ctx.drawImage(Resources.get(this.player), this.x, this.y);
   };
 
   handleInput(){
@@ -53,7 +53,8 @@ class MyPlayer{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [];
-const player = new MyPlayer(2, 2, 5);
+const enemyLocation = [0, 0, 0];
+const player = new Player(200, 400);
 
 
 // This listens for key presses and sends the keys to your
