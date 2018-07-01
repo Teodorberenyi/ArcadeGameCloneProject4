@@ -44,7 +44,22 @@ class Player{
    ctx.drawImage(Resources.get(this.player), this.x, this.y);
   };
 
-  handleInput(){
+  handleInput(keyPress){
+    if (keyPress == 'up'){
+      this.y -=96;
+    };
+
+    if (keyPress == 'down'){
+      this.y +=96;
+    };
+
+    if (keyPress == 'left'){
+      this.x -= 100;
+    };
+
+    if (keyPress == 'right'){
+      this.x += 100;
+    };
 
  };
 }
@@ -54,7 +69,7 @@ class Player{
 // Place the player object in a variable called player
 const allEnemies = [];
 const enemyLocation = [0, 0, 0];
-const player = new Player(200, 400);
+const player = new Player(200, 406);
 
 
 // This listens for key presses and sends the keys to your
