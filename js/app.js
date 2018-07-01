@@ -45,19 +45,19 @@ class Player{
   };
 
   handleInput(keyPress){
-    if (keyPress == 'up'){
+    if (keyPress == 'up' && this.y > 0){
       this.y -=96;
     };
 
-    if (keyPress == 'down'){
+    if (keyPress == 'down' && this.y < 405){
       this.y +=96;
     };
 
-    if (keyPress == 'left'){
+    if (keyPress == 'left' && this.x > 0){
       this.x -= 100;
     };
 
-    if (keyPress == 'right'){
+    if (keyPress == 'right' && this.x < 395){
       this.x += 100;
     };
 
