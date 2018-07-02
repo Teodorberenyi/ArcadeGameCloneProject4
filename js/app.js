@@ -29,26 +29,31 @@ update(dt){
     if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      bugsWin++;
       scoreForBugs();
     };
     if (this.x > 74 && this.x < 180 && player.x == 100 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      bugsWin++;
       scoreForBugs();
     };
     if (this.x > 174 && this.x < 280 && player.x == 200 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      bugsWin++;
       scoreForBugs();
     };
     if (this.x > 274 && this.x < 380 && player.x == 300 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      bugsWin++;
       scoreForBugs();
     };
     if (this.x > 374 && this.x < 480 && player.x == 400 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      bugsWin++;
       scoreForBugs();
     };
  };
@@ -66,7 +71,10 @@ class MyPlayer{
   constructor(x, y){
     this.x = x;
     this.y = y;
-    this.player = 'images/char-boy.png';
+    this.player = [
+	'images/char-boy.png',
+	'images/char-cat-girl.png'
+	];
   };
   update(dt){
     if(this.y < 0){
@@ -79,7 +87,7 @@ class MyPlayer{
   };
 
   render(){
-   ctx.drawImage(Resources.get(this.player), this.x, this.y);
+   ctx.drawImage(Resources.get(this.player[0]), this.x, this.y);
   };
 
   handleInput(keyPress){
