@@ -74,7 +74,7 @@ class MyPlayer{
     this.player = [
 	'images/char-boy.png',
 	'images/char-cat-girl.png',
-  'images/char-horn-gir.png'
+  'images/char-horn-girl.png'
 	];
   };
   update(dt){
@@ -89,6 +89,12 @@ class MyPlayer{
 
   render(){
    ctx.drawImage(Resources.get(this.player[0]), this.x, this.y);
+   if ( playerWins >= 5 && playerWins <= 14) {
+     ctx.drawImage(Resources.get(this.player[1]), this.x, this.y);
+   }
+   if ( playerWins >= 15) {
+     ctx.drawImage(Resources.get(this.player[2]), this.x, this.y);
+   }
   };
 
   handleInput(keyPress){
@@ -120,9 +126,14 @@ let bugsWin = 0;
 let playerWins = 0;
 let bugScore = document.querySelector(".bugScore");
 let playerScore = document.querySelector(".playerScore");
+const modal = document.getElementById('myModal');
+const span = document.getElementsByClassName("close")[0];
 
 function socreForPlayer(){
-  playerScore.innerHTML ="Player Score " + palyerWins;
+  playerScore.innerHTML ="Player Score " + playerWins;
+  if (playerWins == 30) {
+   modal.style.display = "block";
+  }
 };
 
 function scoreForBugs(){
@@ -134,6 +145,14 @@ function scoreForBugs(){
     bugScore.innerHTML ="Bugs Score " + bugsWin;
   }
 };
+
+span.onclick = function(){
+  modal.style.display = "none";
+  bugsWin = 0;
+  palyerWins = 0;
+  playerScore.innerHTML ="Player Score " + palyerWins;
+  bugScore.innerHTML ="Bugs Score " + bugsWin;
+}
 
 enemyLocation.forEach(locY => {
 	enemy = new MyEnemy(-100, locY, 0);
