@@ -1,3 +1,15 @@
 body {
     text-align: center;
 }
+
+.score-panel {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.playerScore {
+  margin-right: 75px;
+}
