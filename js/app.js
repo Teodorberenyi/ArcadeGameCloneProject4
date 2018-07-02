@@ -29,22 +29,27 @@ update(dt){
     if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      scoreForBugs();
     };
     if (this.x > 74 && this.x < 180 && player.x == 100 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      scoreForBugs();
     };
     if (this.x > 174 && this.x < 280 && player.x == 200 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      scoreForBugs();
     };
     if (this.x > 274 && this.x < 380 && player.x == 300 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      scoreForBugs();
     };
     if (this.x > 374 && this.x < 480 && player.x == 400 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
+      scoreForBugs();
     };
  };
 
@@ -67,6 +72,8 @@ class MyPlayer{
     if(this.y < 0){
       this.y = 405;
       this.x = 200;
+      playerWins++;
+      socreForPlayer()
     }
 
   };
@@ -100,6 +107,18 @@ class MyPlayer{
 const allEnemies = [];
 const enemyLocation = [53, 141, 229];
 const player = new MyPlayer(200, 405);
+let bugsWin = 0;
+let playerWins = 0;
+let bugScore = document.querySelector(".bugScore");
+let playerScore = document.querySelector(".playerScore");
+
+function socreForPlayer(){
+  playerScore.innerHTML = playerWins + " Player Score";
+};
+
+function scoreForBugs(){
+  bugScore.innerHTML = bugsWin + " Bugs Score";
+};
 
 enemyLocation.forEach(locY => {
 	enemy = new MyEnemy(-100, locY, 0);
