@@ -16,9 +16,34 @@ class Enemy {
 // Parameter: dt, a time delta between ticks
 update(dt){
     // You should multiply any movement by the dt parameter
-    this.x += this.speed * dt;
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x += this.speed * dt;
+
+    if(this.x > 500){
+      this.x = -100;
+    };
+
+    if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
+      player.x = 200;
+      player.y = 405;
+    };
+    if (this.x > 74 && this.x < 180 && player.x == 0 && this.y == player.y) {
+      player.x = 200;
+      player.y = 405;
+    };
+    if (this.x > 174 && this.x < 280 && player.x == 0 && this.y == player.y) {
+      player.x = 200;
+      player.y = 405;
+    };
+    if (this.x > 274 && this.x < 380 && player.x == 0 && this.y == player.y) {
+      player.x = 200;
+      player.y = 405;
+    };
+    if (this.x > 374 && this.x < 480 && player.x == 0 && this.y == player.y) {
+      player.x = 200;
+      player.y = 405;
+    };
  };
 
 // Draw the enemy on the screen, required method for game
@@ -37,6 +62,10 @@ class Player{
     this.player = 'images/char-boy.png';
   };
   update(dt){
+    if(this.y < 0){
+      this.y = 405;
+      this.x = 200;
+    }
 
   };
 
@@ -46,11 +75,11 @@ class Player{
 
   handleInput(keyPress){
     if (keyPress == 'up' && this.y > 0){
-      this.y -=96;
+      this.y -=88;
     };
 
     if (keyPress == 'down' && this.y < 405){
-      this.y +=96;
+      this.y +=88;
     };
 
     if (keyPress == 'left' && this.x > 0){
@@ -67,11 +96,11 @@ class Player{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [];
-const enemyLocation = [60, 140, 230];
-const player = new Player(200, 406);
+const enemyLocation = [53, 141, 229];
+const player = new Player(200, 405);
 
 enemyLocation.forEach(locY => {
-	enemy = new Enemy(0, locY, 100);
+	enemy = new Enemy(-100, locY, 100);
 	allEnemies.push(enemy);
 });
 
