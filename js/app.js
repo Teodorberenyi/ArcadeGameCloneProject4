@@ -20,27 +20,29 @@ update(dt){
     // all computers.
     this.x += this.speed * dt;
 
-    if(this.x > 500){
+    if (this.x <= -50) {
+      this.speed = Math.floor(Math.random() * 300) + 100;
+    } ;
+    if(this.x > 500) {
       this.x = -100;
     };
-
     if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
     };
-    if (this.x > 74 && this.x < 180 && player.x == 0 && this.y == player.y) {
+    if (this.x > 74 && this.x < 180 && player.x == 100 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
     };
-    if (this.x > 174 && this.x < 280 && player.x == 0 && this.y == player.y) {
+    if (this.x > 174 && this.x < 280 && player.x == 200 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
     };
-    if (this.x > 274 && this.x < 380 && player.x == 0 && this.y == player.y) {
+    if (this.x > 274 && this.x < 380 && player.x == 300 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
     };
-    if (this.x > 374 && this.x < 480 && player.x == 0 && this.y == player.y) {
+    if (this.x > 374 && this.x < 480 && player.x == 400 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
     };
@@ -100,7 +102,7 @@ const enemyLocation = [53, 141, 229];
 const player = new Player(200, 405);
 
 enemyLocation.forEach(locY => {
-	enemy = new Enemy(-100, locY, 100);
+	enemy = new Enemy(-100, locY, 0);
 	allEnemies.push(enemy);
 });
 
