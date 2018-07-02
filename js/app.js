@@ -121,11 +121,11 @@ let bugScore = document.querySelector(".bugScore");
 let playerScore = document.querySelector(".playerScore");
 
 function socreForPlayer(){
-  playerScore.innerHTML = playerWins + " Player Score";
+  playerScore.innerHTML ="Player Score " + palyerWins;
 };
 
 function scoreForBugs(){
-  bugScore.innerHTML = bugsWin + " Bugs Score";
+  bugScore.innerHTML ="Bugs Score " + bugsWin;
 };
 
 enemyLocation.forEach(locY => {
