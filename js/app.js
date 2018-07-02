@@ -73,7 +73,8 @@ class MyPlayer{
     this.y = y;
     this.player = [
 	'images/char-boy.png',
-	'images/char-cat-girl.png'
+	'images/char-cat-girl.png',
+  'images/char-horn-gir.png'
 	];
   };
   update(dt){
@@ -126,6 +127,12 @@ function socreForPlayer(){
 
 function scoreForBugs(){
   bugScore.innerHTML ="Bugs Score " + bugsWin;
+  if (bugsWin == 10) {
+    bugsWin = 0;
+    palyerWins = 0;
+    playerScore.innerHTML ="Player Score " + palyerWins;
+    bugScore.innerHTML ="Bugs Score " + bugsWin;
+  }
 };
 
 enemyLocation.forEach(locY => {
