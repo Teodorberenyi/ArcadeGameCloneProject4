@@ -20,12 +20,17 @@ update(dt){
     // all computers.
     this.x += this.speed * dt;
 
+    //This helps us to spwn the enemies at random locations and with random speeds
     if (this.x <= -50) {
       this.speed = Math.floor(Math.random() * 300) + 100;
     } ;
+
+    //the enemies will be respawned on teh starting location
     if(this.x > 500) {
       this.x = -100;
     };
+
+    //this is the hit detction
     if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
@@ -78,6 +83,7 @@ class MyPlayer{
 	];
   };
   update(dt){
+    //if our chatacter makes it to the water
     if(this.y < 0){
       this.y = 405;
       this.x = 200;
@@ -89,19 +95,27 @@ class MyPlayer{
 
   render(){
    ctx.drawImage(Resources.get(this.player[0]), this.x, this.y);
+
+   //this is ajust a little bonus if u make it 5 times to the water the chracter will be changed
    if ( playerWins >= 5 && playerWins <= 14) {
      ctx.drawImage(Resources.get(this.player[1]), this.x, this.y);
    }
+
+   //the caharacter will be cahnged again if u make it 15 times to the water
    if ( playerWins >= 15) {
      ctx.drawImage(Resources.get(this.player[2]), this.x, this.y);
    }
   };
 
   handleInput(keyPress){
+    //if u press the up arrow the palyer will go up
+    //the curretnt position  will be lesser by 88
+    //important this is not letting the playr move off the canvas
     if (keyPress == 'up' && this.y > 0){
       this.y -=88;
     };
 
+   //ths is the same story as the up arrow by with the down arrow and its ads 88 to the current position
     if (keyPress == 'down' && this.y < 405){
       this.y +=88;
     };
@@ -120,6 +134,11 @@ class MyPlayer{
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 const allEnemies = [];
+
+//53, 141, 229 is the locations wher teh enemis is going
+//and execty this numbers are very importent because
+//our player is jumping up and down by 88 so he can eventyalu meet
+// with the emenies
 const enemyLocation = [53, 141, 229];
 const player = new MyPlayer(200, 405);
 let bugsWin = 0;
@@ -129,6 +148,7 @@ let playerScore = document.querySelector(".playerScore");
 const modal = document.getElementById('myModal');
 const span = document.getElementsByClassName("close")[0];
 
+//this is updating the player score and has the win condition
 function socreForPlayer(){
   playerScore.innerHTML ="Player Score " + playerWins;
   if (playerWins == 30) {
@@ -136,6 +156,7 @@ function socreForPlayer(){
   }
 };
 
+//updates teh enemies score and has the lose condition
 function scoreForBugs(){
   bugScore.innerHTML ="Bugs Score " + bugsWin;
   if (bugsWin == 10) {
@@ -146,6 +167,7 @@ function scoreForBugs(){
   }
 };
 
+//with this we can close teh modal window and start the game agian
 span.onclick = function(){
   modal.style.display = "none";
   bugsWin = 0;
@@ -154,6 +176,7 @@ span.onclick = function(){
   bugScore.innerHTML ="Bugs Score " + bugsWin;
 }
 
+//now this is creating the enmemy objects and storying it in allEnemies array
 enemyLocation.forEach(locY => {
 	enemy = new MyEnemy(-100, locY, 0);
 	allEnemies.push(enemy);
