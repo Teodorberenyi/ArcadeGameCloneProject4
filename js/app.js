@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-class Enemy {
+class MyEnemy {
   constructor(x, y, speed) {
   this.x = x;
   this.y = y;
@@ -57,7 +57,7 @@ render () {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Player{
+class MyPlayer{
   constructor(x, y){
     this.x = x;
     this.y = y;
@@ -99,10 +99,10 @@ class Player{
 // Place the player object in a variable called player
 const allEnemies = [];
 const enemyLocation = [53, 141, 229];
-const player = new Player(200, 405);
+const player = new MyPlayer(200, 405);
 
 enemyLocation.forEach(locY => {
-	enemy = new Enemy(-100, locY, 0);
+	enemy = new MyEnemy(-100, locY, 0);
 	allEnemies.push(enemy);
 });
 
