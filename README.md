@@ -8,8 +8,8 @@ This is a simple arcade game u need to cross the street to get to the water.
 * [About the code] (#aboutTheCode)
 
 ##How to load
-Just simply open index.html file on your browser, tested with google chrom and
-mozila firefox. 
+You can find the game and clone or download it at https://github.com/Teodorberenyi/ArcadeGameCloneProject4.git.
+When you will have a copy just simply open index.html file on your browser.
 
 
 ##How to play
