@@ -10,7 +10,7 @@ class MyEnemy {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
- };
+ }
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -23,50 +23,50 @@ update(dt){
     //This helps us to spwn the enemies at random locations and with random speeds
     if (this.x <= -50) {
       this.speed = Math.floor(Math.random() * 300) + 100;
-    } ;
+    }
 
     //the enemies will be respawned on teh starting location
     if(this.x > 500) {
       this.x = -100;
-    };
+    }
 
     //this is the hit detction
-    if (this.x > -26 && this.x < 80 && player.x == 0 && this.y == player.y) {
+    if (this.x > -26 && this.x < 80 && player.x === 0 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
       bugsWin++;
       scoreForBugs();
-    };
+    }
     if (this.x > 74 && this.x < 180 && player.x == 100 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
       bugsWin++;
       scoreForBugs();
-    };
+    }
     if (this.x > 174 && this.x < 280 && player.x == 200 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
       bugsWin++;
       scoreForBugs();
-    };
+    }
     if (this.x > 274 && this.x < 380 && player.x == 300 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
       bugsWin++;
       scoreForBugs();
-    };
+    }
     if (this.x > 374 && this.x < 480 && player.x == 400 && this.y == player.y) {
       player.x = 200;
       player.y = 405;
       bugsWin++;
       scoreForBugs();
-    };
- };
+    }
+ }
 
 // Draw the enemy on the screen, required method for game
 render () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
- };
+ }
 }
 
 // Now write your own player class
@@ -81,17 +81,16 @@ class MyPlayer{
 	'images/char-cat-girl.png',
   'images/char-horn-girl.png'
 	];
-  };
+  }
   update(dt){
     //if our chatacter makes it to the water
     if(this.y < 0){
       this.y = 405;
       this.x = 200;
       playerWins++;
-      socreForPlayer()
+      socreForPlayer();
     }
-
-  };
+  }
 
   render(){
    ctx.drawImage(Resources.get(this.player[0]), this.x, this.y);
@@ -105,7 +104,7 @@ class MyPlayer{
    if ( playerWins >= 15) {
      ctx.drawImage(Resources.get(this.player[2]), this.x, this.y);
    }
-  };
+  }
 
   handleInput(keyPress){
     //if u press the up arrow the palyer will go up
@@ -113,21 +112,21 @@ class MyPlayer{
     //important this is not letting the playr move off the canvas
     if (keyPress == 'up' && this.y > 0){
       this.y -=88;
-    };
+    }
 
    //ths is the same story as the up arrow by with the down arrow and its ads 88 to the current position
     if (keyPress == 'down' && this.y < 405){
       this.y +=88;
-    };
+    }
 
     if (keyPress == 'left' && this.x > 0){
       this.x -= 100;
-    };
+    }
 
     if (keyPress == 'right' && this.x < 395){
       this.x += 100;
-    };
- };
+    }
+ }
 }
 
 // Now instantiate your objects.
@@ -154,7 +153,7 @@ function socreForPlayer(){
   if (playerWins == 30) {
    modal.style.display = "block";
   }
-};
+}
 
 //updates teh enemies score and has the lose condition
 function scoreForBugs(){
@@ -165,7 +164,7 @@ function scoreForBugs(){
     playerScore.innerHTML ="Player Score " + palyerWins;
     bugScore.innerHTML ="Bugs Score " + bugsWin;
   }
-};
+}
 
 //with this we can close teh modal window and start the game agian
 span.onclick = function(){
@@ -174,7 +173,7 @@ span.onclick = function(){
   palyerWins = 0;
   playerScore.innerHTML ="Player Score " + palyerWins;
   bugScore.innerHTML ="Bugs Score " + bugsWin;
-}
+};
 
 //now this is creating the enmemy objects and storying it in allEnemies array
 enemyLocation.forEach(locY => {
